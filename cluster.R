@@ -68,7 +68,7 @@ data_cluster<-cluster.function(df.cluster,c('Length','Width'),pamk.best$nc)
 p<- ggplot(data = data_cluster,aes(x = Length, y= Width))
 p1<- p+ geom_point(aes(shape = Level, col= factor(cluster))) + 
   scale_shape(solid = FALSE) +
-  scale_colour_manual(values = rainbow(n)) + 
+  scale_colour_manual(values = rainbow(6)) + 
   guides(col=guide_legend(title="Clusters"))
 
 p1
@@ -83,6 +83,6 @@ quant.funct<-function(df, col){
   return(qt)
 }
 
-  quant.funct(df, "Length")
-  quant.funct(df, 'Width')
+  quant.funct(data_cluster, "Length")
+  quant.funct(data_cluster, 'Width')
 
